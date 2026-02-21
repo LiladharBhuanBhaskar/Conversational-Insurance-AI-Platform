@@ -1,4 +1,4 @@
-# Conversational Insurance AI Platform (MVP)
+# Conversational Insurance AI Platform With RAG
 A FastAPI-based, chatbot-first insurance assistant that combines policy database grounding with FAQ retrieval for reliable responses.
 
 ## Problem Statement
@@ -182,7 +182,7 @@ OLLAMA_MODEL=llama3.1
 | POST | `/buy-policy` | Yes | Purchase policy for authenticated user |
 | POST | `/upload-data` | Yes | Upload CSV and ingest into retrieval index |
 
-## Demo Flow (Internship Evaluation)
+## Demo Flow 
 1. Start the application and open the web UI.
 2. Login with seeded account (example: `alice@example.com / alice123`).
 3. Ask: `I need policy details`.
@@ -212,3 +212,4 @@ OLLAMA_MODEL=llama3.1
 - Product catalog and add-on defaults are seeded if missing.
 - If Groq is unavailable, Ollama fallback is attempted when configured.
 - If FAISS initialization fails, lexical retrieval fallback keeps chat usable.
+
