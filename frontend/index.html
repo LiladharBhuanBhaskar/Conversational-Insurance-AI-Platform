@@ -1,0 +1,151 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>InsureAssist Platform</title>
+    <meta
+      name="description"
+      content="InsureAssist is a conversational insurance AI platform for policy support, purchase, and add-on guidance."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/frontend/style.css" />
+  </head>
+  <body>
+    <div class="bg-orb orb-a"></div>
+    <div class="bg-orb orb-b"></div>
+
+    <div class="layout">
+      <aside class="sidebar">
+        <div class="brand-block">
+          <p class="brand-kicker">Conversational Insurance</p>
+          <h1>InsureAssist</h1>
+          <p class="brand-sub">Chat-first platform for policy support, purchase, and add-on intelligence.</p>
+        </div>
+
+        <div class="auth-strip">
+          <button id="openAuthBtn" class="btn btn-primary">Login / Signup</button>
+          <button id="profileBtn" class="profile-btn hidden"></button>
+          <button id="logoutBtn" class="btn btn-ghost hidden">Logout</button>
+        </div>
+
+        <section class="card">
+          <div class="card-title-row">
+            <h3>Policy Access</h3>
+          </div>
+          <label for="policyInput">Policy Number</label>
+          <div class="policy-row">
+            <input id="policyInput" type="text" placeholder="e.g. HLT1001" aria-label="Policy number input" />
+            <button id="setPolicyBtn" class="btn btn-secondary">Set</button>
+          </div>
+          <small id="policyHint">Login or provide a valid policy number.</small>
+        </section>
+
+        <section class="card">
+          <div class="card-title-row">
+            <h3>Buy Insurance</h3>
+            <button id="refreshProductsBtn" class="btn btn-inline">Refresh</button>
+          </div>
+          <div id="productsList" class="products-list"></div>
+        </section>
+
+        <section class="card quick-actions">
+          <button id="showPlansChatBtn" class="btn btn-secondary">Show Plans In Chat</button>
+        </section>
+      </aside>
+
+      <main class="chat-shell" aria-label="Insurance chatbot">
+        <header class="chat-header">
+          <div>
+            <h2>Insurance Concierge</h2>
+            <p id="sessionStatus">Not authenticated</p>
+          </div>
+          <div class="chat-header-right">
+            <div class="assistant-status" aria-label="Assistant status">
+              <span class="status-dot" aria-hidden="true"></span>
+              AI Online
+            </div>
+            <div id="activePolicyBadge" class="policy-badge">No policy selected</div>
+          </div>
+        </header>
+
+        <div id="chatWindow" class="chat-window" aria-live="polite" aria-relevant="additions text"></div>
+
+        <form id="chatForm" class="chat-input-row">
+          <input
+            id="chatInput"
+            type="text"
+            placeholder="Ask claims, coverage, renewal, add-on suggestions..."
+            autocomplete="off"
+            aria-label="Type your message"
+          />
+          <button type="submit" class="btn btn-primary">Send</button>
+        </form>
+      </main>
+    </div>
+
+    <div id="authModal" class="modal hidden">
+      <div class="modal-card">
+        <div class="modal-header">
+          <button id="showLoginBtn" class="tab active">Login</button>
+          <button id="showSignupBtn" class="tab">Signup</button>
+          <button id="closeModalBtn" class="close-btn" type="button">x</button>
+        </div>
+
+        <form id="loginForm" class="auth-form">
+          <input id="loginEmail" type="email" placeholder="Email" required />
+          <input id="loginPassword" type="password" placeholder="Password" required />
+          <button type="submit" class="btn btn-primary">Login</button>
+        </form>
+
+        <form id="signupForm" class="auth-form hidden">
+          <input id="signupName" type="text" placeholder="Full name" required />
+          <input id="signupEmail" type="email" placeholder="Email" required />
+          <input id="signupPassword" type="password" placeholder="Password (min 6 chars)" minlength="6" required />
+          <button type="submit" class="btn btn-primary">Create Account</button>
+        </form>
+      </div>
+    </div>
+
+    <div id="profileModal" class="modal hidden">
+      <div class="modal-card profile-modal-card">
+        <div class="modal-header">
+          <button class="tab active" type="button">Profile Settings</button>
+          <button id="closeProfileModalBtn" class="close-btn" type="button">x</button>
+        </div>
+
+        <section class="profile-summary">
+          <p id="profileInfoName">Name: -</p>
+          <p id="profileInfoEmail">Email: -</p>
+        </section>
+
+        <form id="editProfileForm" class="auth-form profile-form">
+          <h3>Edit Profile</h3>
+          <input id="profileNameInput" type="text" placeholder="Full name" minlength="2" required />
+          <input id="profileEmailInput" type="email" placeholder="Email address" required />
+          <button type="submit" class="btn btn-primary">Save Profile</button>
+        </form>
+
+        <form id="changePasswordForm" class="auth-form profile-form">
+          <h3>Change Password</h3>
+          <input
+            id="currentPasswordInput"
+            type="password"
+            placeholder="Current password"
+            minlength="6"
+            required
+          />
+          <input id="newPasswordInput" type="password" placeholder="New password" minlength="6" required />
+          <button type="submit" class="btn btn-secondary">Update Password</button>
+        </form>
+      </div>
+    </div>
+
+    <script src="/frontend/script.js"></script>
+  </body>
+</html>

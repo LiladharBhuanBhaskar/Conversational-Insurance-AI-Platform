@@ -1,0 +1,5 @@
+﻿policy_number,user_id,insurance_type,coverage_limit,premium,status,start_date,end_date
+HLT1001,1,health,500000,12000,active,2025-01-01,2026-12-31
+VEH2001,2,vehicle,300000,18000,active,2024-06-01,2026-06-01
+LIF3001,3,life,1000000,25000,expired,2022-01-15,2024-01-14
+HLT1002,1,health,800000,20000,active,2025-07-01,2027-06-30

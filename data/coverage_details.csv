@@ -1,0 +1,5 @@
+﻿policy_number,coverage_items,exclusions,deductible
+HLT1001,"Hospitalization; ICU; Daycare procedures; Pre and post hospitalization","Cosmetic procedures; Experimental treatment",5000
+VEH2001,"Own damage; Third-party liability; Personal accident cover","Drunk driving; Unauthorized modifications",2000
+LIF3001,"Natural death; Accidental death rider","Suicide within first 12 months; Fraud declaration",0
+HLT1002,"Hospitalization; Maternity; Specialist consultations; Diagnostics","Non-medical consumables; Cosmetic surgery",7500
